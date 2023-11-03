@@ -9,18 +9,22 @@ import MainRouter from "./MainRouter";
 import Link from "antd/es/typography/Link";
 const { Header, Content, Footer, Sider } = Layout;
 
-function getItem(label, key, icon, children) {
+function getItem(label, key, icon, disabled, children) {
   return {
     key,
     icon,
     children,
-    label: <Link href={key}>{label}</Link>,
+    label: (
+      <Link disabled={disabled} href={key}>
+        {label}
+      </Link>
+    ),
   };
 }
 const items = [
-  getItem("Force Graph", "/forcegraph", <ShareAltOutlined />),
-  getItem("Auto Formatter", "/autoformat", <FileSyncOutlined />),
-  getItem("Springboot", "/springboot", <ThunderboltOutlined />),
+  getItem("Force Graph", "#/forcegraph", <ShareAltOutlined />, false),
+  getItem("Auto Formatter", "#/autoformat", <FileSyncOutlined />, true),
+  getItem("Springboot", "#/springboot", <ThunderboltOutlined />, true),
 ];
 
 const MainLayout = () => {
@@ -50,13 +54,18 @@ const MainLayout = () => {
         <Header
           style={{
             padding: 0,
-            background: colorBgContainer,
+            background: "#002140",
           }}
-        />
+        >
+          <h3 style={{ padding: "0px 30px", margin: 0, color: "white" }}>
+            {" "}
+            PBIP proof of concept tool
+          </h3>
+        </Header>
         <Content
           style={{
             margin: "0 0",
-            padding:"15px 15px"
+            padding: "15px 15px",
           }}
         >
           <MainRouter />
