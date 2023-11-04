@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useModelStore } from "./GlobalStore";
 import { Card, Table, Tag } from "antd";
 
-export default function HighlightNodesTable() {
+export default function HighlightNodesTable({tourRef}) {
   const highlightNodes = useModelStore((state) => state.highlightNodes);
 
   const columns = [
@@ -31,7 +31,7 @@ export default function HighlightNodesTable() {
   ];
 
   return (
-    <Card>
+    <Card ref={tourRef}>
       <Table columns={columns} dataSource={highlightNodes} />
     </Card>
   );

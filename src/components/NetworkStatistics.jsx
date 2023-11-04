@@ -3,13 +3,13 @@ import React from "react";
 import { useModelStore } from "./GlobalStore";
 import { ShareAltOutlined } from "@ant-design/icons";
 
-export default function NetworkStatistics() {
+export default function NetworkStatistics({tourRef}) {
   const model_content = useModelStore((state) => state.model_content);
   const hNodes = useModelStore((state) => state.highlightNodes);
   const { tables, measures, columns } = model_content;
 
   return (
-    <Card>
+    <Card ref={tourRef}>
       <Row gutter={[16, 8]} justify="center">
         <Col span={24}>
           <Statistic

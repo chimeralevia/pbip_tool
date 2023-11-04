@@ -1,11 +1,12 @@
 import React from "react";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import NetworkGraphView from "./views/NetworkGraphView.jsx";
+import App from "./App.jsx";
 
 const router = createHashRouter([
   {
     path: "/",
-    element: <>app</>,
+    element: <App/>,
   },
   {
     path: "/forcegraph",

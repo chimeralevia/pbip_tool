@@ -6,7 +6,7 @@ import { message, Upload } from "antd";
 import { InboxOutlined } from "@ant-design/icons";
 const { Dragger } = Upload;
 
-export default function LoadModelButton() {
+export default function LoadModelButton({tourRef}) {
   const setModelObj = useModelStore((state) => state.setModelObj);
 
   const props = {
@@ -39,7 +39,7 @@ export default function LoadModelButton() {
   };
 
   return (
-    <Card  bordered={false} size="small">
+    <Card  bordered={false} size="small" ref={tourRef}>
       <Dragger {...props}>
         <p className="ant-upload-drag-icon">
           <InboxOutlined />

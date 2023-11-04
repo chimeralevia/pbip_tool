@@ -3,7 +3,7 @@ import { useModelStore } from "./GlobalStore";
 import SpriteText from "three-spritetext";
 import { ForceGraph3D } from "react-force-graph";
 import { Card } from "antd";
-export default function D3Graph() {
+export default function D3Graph({ tourRef }) {
   const model_content = useModelStore((state) => state.model_content);
   const setHighlightNodes = useModelStore((state) => state.setHighlightNodes);
 
@@ -101,41 +101,43 @@ export default function D3Graph() {
 
   return (
     <Card ref={div}>
-      <ForceGraph3D
-        height={700}
-        width={width - 50}
-        graphData={graphData}
-        linkThreeObjectExtend={true}
-        onNodeClick={handleNodeSelection}
-        onBackgroundClick={clearNodeSelection}
-        linkDirectionalParticles={1}
-        linkWidth={2}
-        linkOpacity={0.4}
-        linkColor="color"
-        nodeThreeObject={(node) => {
-          const size = node.size;
-          const geometry = new THREE.SphereGeometry(size, 32, 16);
-          const material = new THREE.MeshBasicMaterial({
-            color: "#" + node.color,
-          });
-          const mesh = new THREE.Mesh(geometry, material);
-          return mesh;
-        }}
-        linkThreeObject={(link) => {
-          const sprite = new SpriteText(`${link.label}`);
-          sprite.color = "white";
-          sprite.textHeight = 3.5;
-          return sprite;
-        }}
-        linkPositionUpdate={(sprite, { start, end }) => {
-          const middlePos = Object.assign(
-            ...["x", "y", "z"].map((c) => ({
-              [c]: start[c] + (end[c] - start[c]) / 2,
-            }))
-          );
-          Object.assign(sprite.position, middlePos);
-        }}
-      />
+      <Card ref={tourRef} bordered={false} style={{margin:0,padding:0}} bodyStyle={{margin:0,padding:0}}>
+        <ForceGraph3D
+          height={700}
+          width={width - 50}
+          graphData={graphData}
+          linkThreeObjectExtend={true}
+          onNodeClick={handleNodeSelection}
+          onBackgroundClick={clearNodeSelection}
+          linkDirectionalParticles={1}
+          linkWidth={2}
+          linkOpacity={0.4}
+          linkColor="color"
+          nodeThreeObject={(node) => {
+            const size = node.size;
+            const geometry = new THREE.SphereGeometry(size, 32, 16);
+            const material = new THREE.MeshBasicMaterial({
+              color: "#" + node.color,
+            });
+            const mesh = new THREE.Mesh(geometry, material);
+            return mesh;
+          }}
+          linkThreeObject={(link) => {
+            const sprite = new SpriteText(`${link.label}`);
+            sprite.color = "white";
+            sprite.textHeight = 3.5;
+            return sprite;
+          }}
+          linkPositionUpdate={(sprite, { start, end }) => {
+            const middlePos = Object.assign(
+              ...["x", "y", "z"].map((c) => ({
+                [c]: start[c] + (end[c] - start[c]) / 2,
+              }))
+            );
+            Object.assign(sprite.position, middlePos);
+          }}
+        />
+      </Card>
     </Card>
   );
 }

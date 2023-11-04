@@ -7,6 +7,7 @@ import {
 import { Layout, Menu, theme } from "antd";
 import MainRouter from "./MainRouter";
 import Link from "antd/es/typography/Link";
+import Title from "antd/es/typography/Title";
 const { Header, Content, Footer, Sider } = Layout;
 
 function getItem(label, key, icon, disabled, children) {
@@ -57,10 +58,7 @@ const MainLayout = () => {
             background: "#002140",
           }}
         >
-          <h3 style={{ padding: "0px 30px", margin: 0, color: "white" }}>
-            {" "}
-            PBIP proof of concept tool
-          </h3>
+          <Title level={4} style={{margin:0,padding:15, color:"white"}}>PBIP proof of concept tool</Title>
         </Header>
         <Content
           style={{
