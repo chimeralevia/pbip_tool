@@ -5,8 +5,7 @@ import D3Graph from "../components/D3Graph";
 import HighlightNodesTable from "../components/HighlightNodesTable";
 import NetworkStatistics from "../components/NetworkStatistics";
 
-import { EllipsisOutlined } from "@ant-design/icons";
-import { Button, Space, Tour } from "antd";
+import { Button, Tour } from "antd";
 
 export default function NetworkGraphView() {
   const [open, setOpen] = useState(false);

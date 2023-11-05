@@ -17,7 +17,7 @@ const transform_data = (model) => {
 
     const columns = table?.columns || [];
     const t_columns = columns.map((col) => {
-      const c_col = col;
+      const c_col = structuredClone(col);
       c_col.parent_table = t_obj;
       c_col.entity_type = "COLUMN";
       c_col.uuid = `${t_obj.uuid}[C]${col.name}`;
@@ -27,7 +27,7 @@ const transform_data = (model) => {
 
     const measures = table?.measures || [];
     const t_measures = measures.map((measure) => {
-      const c_mes = measure;
+      const c_mes = structuredClone(measure);
       c_mes.parent_table = t_obj;
       c_mes.entity_type = "MEASURE";
       c_mes.uuid = `${t_obj.uuid}[M]${measure.name}`;

@@ -39,7 +39,7 @@ export default function LoadModelButton({tourRef}) {
   };
 
   return (
-    <Card  bordered={false} size="small" ref={tourRef}>
+    <Card  size="small" ref={tourRef}>
       <Dragger {...props}>
         <p className="ant-upload-drag-icon">
           <InboxOutlined />

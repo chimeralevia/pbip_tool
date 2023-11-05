@@ -28,6 +28,11 @@ function App() {
             <li>
               <Link href="#/forcegraph">Force Graph</Link>
             </li>
+          </ul>
+        </Paragraph>
+        <Title level={2}>Modules in development</Title>
+        <Paragraph>
+          <ul>
             <li>
               <Link href="#/autoformat">Auto Formatter</Link>
             </li>

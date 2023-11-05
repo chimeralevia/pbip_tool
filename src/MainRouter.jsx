@@ -2,11 +2,12 @@ import React from "react";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import NetworkGraphView from "./views/NetworkGraphView.jsx";
 import App from "./App.jsx";
+import AutoFormatter from "./views/AutoFormatter.jsx";
 
 const router = createHashRouter([
   {
     path: "/",
-    element: <App/>,
+    element: <App />,
   },
   {
     path: "/forcegraph",
@@ -14,7 +15,7 @@ const router = createHashRouter([
   },
   {
     path: "/autoformat",
-    element: <>autoformat</>,
+    element: <AutoFormatter />,
   },
   {
     path: "/springboot",
@@ -23,6 +24,5 @@ const router = createHashRouter([
 ]);
 
 export default function MainRouter() {
-
   return <RouterProvider router={router} />;
 }

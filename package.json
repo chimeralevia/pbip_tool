@@ -17,6 +17,7 @@
     "aframe": "^1.4.2",
     "antd": "^5.10.3",
     "ar.js": "^2.2.2",
+    "axios": "^1.6.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "react": "^18.2.0",
