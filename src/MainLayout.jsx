@@ -3,13 +3,15 @@ import {
   FileSyncOutlined,
   ShareAltOutlined,
   ThunderboltOutlined,
+  HomeOutlined,
 } from "@ant-design/icons";
-import { Layout, Menu, theme } from "antd";
+import { Divider, Layout, Menu, theme } from "antd";
 import MainRouter from "./MainRouter";
 import Link from "antd/es/typography/Link";
 import Title from "antd/es/typography/Title";
-import LoadModelButton from "./components/LoadModelButton";
 const { Header, Content, Footer, Sider } = Layout;
+
+import App from "./App";
 
 function getItem(label, key, icon, disabled, children) {
   return {
@@ -24,6 +26,7 @@ function getItem(label, key, icon, disabled, children) {
   };
 }
 const items = [
+  getItem("Home", "#/", <HomeOutlined />, false),
   getItem("Force Graph", "#/forcegraph", <ShareAltOutlined />, false),
   getItem("Auto Formatter", "#/autoformat", <FileSyncOutlined />, false),
   getItem("Springboot", "#/springboot", <ThunderboltOutlined />, true),
