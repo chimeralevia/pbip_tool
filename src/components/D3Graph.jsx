@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect,  useState } from "react";
 import { useModelStore } from "./GlobalStore";
 import SpriteText from "three-spritetext";
 import { ForceGraph3D } from "react-force-graph";
